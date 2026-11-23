@@ -6,6 +6,7 @@ public class BallMov : MonoBehaviour
 {
     public float speed;
     Vector3 dir;
+    public puntuacion puntuacion; 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,6 +23,9 @@ public class BallMov : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
+
+
         Debug.Log("Y se marchooo" + collision.gameObject.tag);
 
         if (collision.gameObject.tag == "wall")
@@ -35,7 +39,19 @@ public class BallMov : MonoBehaviour
         if (collision.gameObject.tag == "goal")
         {
             transform.position = new Vector3(0, 0);
+            Spawn();
+            if (collision.gameObject.name == "porteria a")
+            {
+                Debug.Log("El jugador B ha marcado goal");
 
+                puntuacion.puntuacionB = puntuacion.puntuacionB + 1;
+            }
+            if (collision.gameObject.name == "porteria b")
+            {
+                Debug.Log("El jugador A ha marcado goal");
+
+                puntuacion.puntuacionA = puntuacion.puntuacionA + 1;
+            }
         }
     }
     void Spawn()

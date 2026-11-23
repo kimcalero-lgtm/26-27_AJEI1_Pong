@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class LimitedMov : MonoBehaviour
 {
-    public float limiteMax = 4;
-    public float limiteMin = -4;
+    public float limiteMax = 10;
+    public float limiteMin = -10;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Update()
